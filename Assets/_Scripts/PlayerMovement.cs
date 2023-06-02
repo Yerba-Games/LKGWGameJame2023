@@ -6,8 +6,8 @@ using NaughtyAttributes;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private Rigidbody2D rb;
-    private Vector2 moveInput;
+    private Rigidbody rb;
+    private Vector3 moveInput;
     [SerializeField][Foldout("DashSettings")] float dashSpeed;
     [SerializeField][Foldout("DashSettings")] float dashCoolDownTime;
     bool canDash = true;
@@ -17,21 +17,21 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
        // if(rb.velocity.magnitude < maxVelocity )
        // {
-            rb.velocity = new Vector2(moveInput.x, moveInput.y) * speed;
+            rb.velocity = moveInput * speed;
         //}
 
 
     }
     void OnMove(InputValue value)
     {
-        moveInput = value.Get<Vector2>();
+        moveInput =new Vector3 (value.Get<Vector2>().x,0, value.Get<Vector2>().y);
     }
     void OnDash()
     {

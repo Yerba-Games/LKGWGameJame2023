@@ -654,6 +654,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  dashSpeed: 4
+  dashCoolDownTime: 4
 --- !u!212 &1881208595
 SpriteRenderer:
   m_ObjectHideFlags: 0

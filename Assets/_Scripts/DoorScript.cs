@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
-    private Collider2D collider2D;
-    private Rigidbody2D rb;
+    private Collider collider;
+    private Rigidbody rb;
     private void Start()
     {
-        collider2D=gameObject.GetComponent<Collider2D>();
-        collider2D.isTrigger=true;
+        collider=gameObject.GetComponent<Collider>();
+        collider.isTrigger=true;
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit(Collider collision)
     {
-        collider2D.isTrigger=false;
-        rb=gameObject.AddComponent<Rigidbody2D>();
+        collider.isTrigger=false;
+        rb=gameObject.AddComponent<Rigidbody>();
         rb.isKinematic = true;
     }
 }

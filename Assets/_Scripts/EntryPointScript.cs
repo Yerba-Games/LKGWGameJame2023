@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class EntryPointScript : MonoBehaviour
 {
-    private Collider2D collider2D;
-    Rigidbody2D rb;
+    private Collider collider;
+    Rigidbody rb;
     private void Start()
     {
-        collider2D = gameObject.GetComponent<Collider2D>();
-        collider2D.isTrigger = true;
+        collider = gameObject.GetComponent<Collider>();
+        collider.isTrigger = true;
         EntryPointsManager.AddEntry(gameObject);
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit(Collider collision)
     {
         EntryPointsManager.RemoveEntry(gameObject);
-        collider2D.isTrigger = false;
-        rb = gameObject.AddComponent<Rigidbody2D>();
+        collider.isTrigger = false;
+        rb = gameObject.AddComponent<Rigidbody>();
         rb.isKinematic = true;
     }
 }
