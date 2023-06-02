@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-public class PlayerMovement: MonoBehaviour
+using NaughtyAttributes;
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     private Rigidbody2D rb;
     private Vector2 moveInput;
-    private Renderer playerRenderer;
+    [SerializeField][Foldout("DashSettings")] float dashSpeed;
+    [SerializeField][Foldout("DashSettings")] float dashCoolDownTime;
+    bool canDash = true;
+    private float dashStartingTime;
+    //[SerializeField] float maxVelocit = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +22,40 @@ public class PlayerMovement: MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveInput.x, moveInput.y) * speed;
+       // if(rb.velocity.magnitude < maxVelocity )
+       // {
+            rb.velocity = new Vector2(moveInput.x, moveInput.y) * speed;
+        //}
+
+
     }
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
     }
+    //void OnDash()
+    //{
+    //    Debug.Log("1");
+    //    if (canDash) 
+    //    {
+    //        Debug.Log("2");
+    //        rb.AddForce(moveInput*dashSpeed,ForceMode2D.Impulse);
+    //        Debug.Log(moveInput*dashSpeed);
+    //        canDash = false;
+    //        dashStartingTime = dashCoolDownTime;
+    //    }
+    //}
+    void Update() 
+    {
+        if (!canDash && dashStartingTime > 0)
+        {
+            dashStartingTime -= Time.deltaTime;
+
+        }
+        else
+        {
+            canDash = true;
+        }
+    }
+
 }
