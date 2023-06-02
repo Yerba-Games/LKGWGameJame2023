@@ -6,7 +6,7 @@ public class EntryPointScript : MonoBehaviour
 {
     private Collider collider;
     Rigidbody rb;
-    private void Start()
+    private void OnEnable()
     {
         collider = gameObject.GetComponent<Collider>();
         collider.isTrigger = true;
