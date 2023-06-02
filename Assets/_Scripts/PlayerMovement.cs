@@ -33,19 +33,19 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = value.Get<Vector2>();
     }
-    //void OnDash()
-    //{
-    //    Debug.Log("1");
-    //    if (canDash) 
-    //    {
-    //        Debug.Log("2");
-    //        rb.AddForce(moveInput*dashSpeed,ForceMode2D.Impulse);
-    //        Debug.Log(moveInput*dashSpeed);
-    //        canDash = false;
-    //        dashStartingTime = dashCoolDownTime;
-    //    }
-    //}
-    void Update() 
+    void OnDash()
+    {
+        Debug.Log("1");
+        if (canDash)
+        {
+            Debug.Log("2");
+           transform.Translate(moveInput * dashSpeed);
+            Debug.Log(moveInput * dashSpeed);
+            canDash = false;
+            dashStartingTime = dashCoolDownTime;
+        }
+    }
+        void Update() 
     {
         if (!canDash && dashStartingTime > 0)
         {
