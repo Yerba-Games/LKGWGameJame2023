@@ -39,6 +39,7 @@ public class PlayerHealthManager : MonoBehaviour
         if(EntryPointsManager.Instance.EntryPoints.Count > 0) 
         {
             PlayerAnimationControler.Instance.DeathAnimation();
+            Sound.PlaySpawn();
             SpawnManager.Spawn();
             PlayerHealthManager.Instance.health = PlayerHealthManager.Instance.baseHealth;
         }

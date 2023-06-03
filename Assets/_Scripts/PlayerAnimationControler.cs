@@ -39,7 +39,7 @@ public class PlayerAnimationControler : MonoBehaviour
     }
     public void MovementAnimation() 
     {
-        animator.SetTrigger("Move");
+        animator.Play("Move");
     }
     public void IdleAnimation()
     {

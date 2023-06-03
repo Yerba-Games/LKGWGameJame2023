@@ -10,7 +10,7 @@ public class EntryPointScript : MonoBehaviour
     {
         collider = gameObject.GetComponent<Collider>();
         collider.isTrigger = true;
-        EntryPointsManager.AddEntry(gameObject);
+        //EntryPointsManager.AddEntry(gameObject);
     }
     private void OnTriggerExit(Collider collision)
     {

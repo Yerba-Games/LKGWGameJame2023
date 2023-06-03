@@ -13,7 +13,8 @@ public class PlayerAttack : MonoBehaviour
     void OnAttack(InputValue value)
     {
         isAttacking = true;
-        AttackInput = new Vector3(value.Get<Vector2>().x, 0, value.Get<Vector2>().y);
+        Sound.PlayAttack();
+        AttackInput = new Vector3(-value.Get<Vector2>().x, 0, -value.Get<Vector2>().y);
         {
             PlayerAnimationControler.Instance.AttackAnimation();
             RaycastHit hit;

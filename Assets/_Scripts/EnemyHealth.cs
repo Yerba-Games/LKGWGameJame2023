@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
         health-=(int)damage;
         if (health == 0)
         {
+            Sound.PlayEnemyDeath();
             Destroy(gameObject);
         }
     }

@@ -22,8 +22,13 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] GameObject StartSpawn;
     private Transform spawnTransform;
     [SerializeField] GameObject Player;
+    private void Start()
+    {
+        spawnTransform = StartSpawn.transform;
+    }
     public static void Spawn()
     {
+        Sound.PlaySpawn();
         SpawnManager.Instance.Player.transform.position = SpawnManager.Instance.spawnTransform.position;
     }
     public static void ChangeSpawnPoint(Transform spawnPoint)

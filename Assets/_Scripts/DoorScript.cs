@@ -9,7 +9,7 @@ public class DoorScript : MonoBehaviour
     private void Start()
     {
         collider=gameObject.GetComponent<Collider>();
-        collider.isTrigger=true;
+        //collider.isTrigger=true;
     }
     private void OnTriggerExit(Collider collision)
     {
