@@ -20,6 +20,11 @@ public class PlayerHealthManager : MonoBehaviour
     }
     #endregion
     [SerializeField]int health;
+    int baseHealth;
+    private void Start()
+    {
+        baseHealth = health;
+    }
     public static void Damage(int damage)
     {
         PlayerHealthManager.Instance.health-=damage;
@@ -33,7 +38,9 @@ public class PlayerHealthManager : MonoBehaviour
     {
         if(EntryPointsManager.Instance.EntryPoints.Count > 0) 
         {
+            PlayerAnimationControler.Instance.DeathAnimation();
             SpawnManager.Spawn();
+            PlayerHealthManager.Instance.health = PlayerHealthManager.Instance.baseHealth;
         }
         else
         {

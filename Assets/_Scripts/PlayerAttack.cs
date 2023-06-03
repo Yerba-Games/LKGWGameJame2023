@@ -15,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
         isAttacking = true;
         AttackInput = new Vector3(value.Get<Vector2>().x, 0, value.Get<Vector2>().y);
         {
+            PlayerAnimationControler.Instance.AttackAnimation();
             RaycastHit hit;
             if (Physics.Raycast(transform.localPosition + AttackInput, AttackInput, out hit,2f))
             {

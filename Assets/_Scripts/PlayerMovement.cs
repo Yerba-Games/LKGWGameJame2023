@@ -12,12 +12,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField][Foldout("DashSettings")] float dashCoolDownTime;
     bool canDash = true;
     private float dashStartingTime;
+    PlayerAnimationControler animations;
     //[SerializeField] float maxVelocit = 10;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animations= GetComponent<PlayerAnimationControler>();
     }
 
     void FixedUpdate()
@@ -26,12 +28,21 @@ public class PlayerMovement : MonoBehaviour
        // {
             rb.velocity = moveInput * speed;
         //}
+        if (moveInput * speed == Vector3.zero)
+        {
+            animations.IdleAnimation();
+        }
+        else
+        {
+            animations.MovementAnimation();
+        }
 
 
     }
     void OnMove(InputValue value)
     {
         moveInput =new Vector3 (value.Get<Vector2>().x,0, value.Get<Vector2>().y);
+
     }
     void OnDash()
     {
@@ -43,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log(moveInput * dashSpeed);
             canDash = false;
             dashStartingTime = dashCoolDownTime;
+            animations.DashAnimation();
         }
     }
         void Update() 

@@ -413,6 +413,7 @@ GameObject:
   - component: {fileID: 459957944}
   - component: {fileID: 459957943}
   - component: {fileID: 459957946}
+  - component: {fileID: 459957947}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -608,6 +609,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSize: {x: 1.5, y: 1.5, z: 1.5}
   attackDamage: 10
+--- !u!95 &459957947
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459957937}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bf3e764a99afe2d468ee99f907e57629, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1108264007
 GameObject:
   m_ObjectHideFlags: 0
