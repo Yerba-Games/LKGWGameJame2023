@@ -9,7 +9,7 @@ public class Sound : MonoBehaviour
     [SerializeField]
     private AudioSource source;
     public AudioClip jump;
-
+    public AudioClip menuMusic;
     public AudioClip dash;
     public AudioClip spawn;
     public AudioClip attack;
@@ -46,6 +46,11 @@ public class Sound : MonoBehaviour
     }
     public static void PlayMenuMusic()
     {
-        Sound.Play(Instance.menumusic);
+        Sound.Play(Instance.menuMusic);
+    }
+    public static void Play(AudioClip clip)
+    {
+        if (clip == null) return;
+        //Instance.source.PlayOneShotSoundManaged(clip);
     }
 }

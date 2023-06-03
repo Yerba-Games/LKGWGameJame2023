@@ -24,9 +24,10 @@ public class EnemyAI : MonoBehaviour
     [Foldout("Attacking")]
     [SerializeField] float AttackRange;
     [SerializeField] int damage;
-
+    [SerializeField] Animator animator;
     NavMeshAgent agent;
     float waitTimer;
+    [SerializeField] GameObject animatorObject;
 
     [SerializeField]  EnemyState currentState = EnemyState.Wait;
 
@@ -42,6 +43,7 @@ public class EnemyAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         GoToRandomPoint();
+        animator=animatorObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -122,6 +124,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Chase()
     {
+        animator.SetTrigger("idle");
         agent.SetDestination(player.position);
         //Sprawdzamy warunek wyjœcia
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
@@ -140,6 +143,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Wander()
     {
+        animator.SetTrigger("idle");
         //Sprawdzamy warunek przejœcia do innych stanów
         if (Vector3.Distance(transform.position, player.position) < chaseStartDistance)
         {
@@ -171,6 +175,7 @@ public class EnemyAI : MonoBehaviour
 
     void Attack()
     {
+        animator.SetTrigger("Attack");
         if (Vector3.Distance(transform.position, player.position) > AttackRange)
         {
             SwitchState(EnemyState.Chase);
