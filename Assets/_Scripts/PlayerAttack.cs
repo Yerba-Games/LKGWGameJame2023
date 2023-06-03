@@ -12,21 +12,21 @@ public class PlayerAttack : MonoBehaviour
     
     void OnAttack(InputValue value)
     {
-        //isAttacking = true;
-        //AttackInput = new Vector3(value.Get<Vector2>().x, 0, value.Get<Vector2>().y);
-        //{
-        //    RaycastHit hit;
-        //    if (Physics.Raycast(transform.position+AttackInput,transform.forward,out hit))
-        //    {
-        //        Debug.Log("hit");
-        //        // Check if the hit object has an Enemy script attached
-        //        EnemyHealth enemy = hit.collider.GetComponent<EnemyHealth>();
-        //        if (enemy != null)
-        //        {
-        //            enemy.GetDamage(attackDamage);
-        //        }
-        //    }
-        //}
+        isAttacking = true;
+        AttackInput = new Vector3(value.Get<Vector2>().x, 0, value.Get<Vector2>().y);
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.localPosition + AttackInput, AttackInput, out hit,2f))
+            {
+                Debug.Log("hit");
+                // Check if the hit object has an Enemy script attached
+                EnemyHealth enemy = hit.collider.GetComponent<EnemyHealth>();
+                if (enemy != null)
+                {
+                    enemy.GetDamage(attackDamage);
+                }
+            }
+        }
     }
 
 }

@@ -412,6 +412,7 @@ GameObject:
   - component: {fileID: 459957945}
   - component: {fileID: 459957944}
   - component: {fileID: 459957943}
+  - component: {fileID: 459957946}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -593,6 +594,20 @@ MonoBehaviour:
   speed: 4
   dashSpeed: 4
   dashCoolDownTime: 4
+--- !u!114 &459957946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459957937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3c6bbc10e6d894bb473c707de308b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSize: {x: 1.5, y: 1.5, z: 1.5}
+  attackDamage: 10
 --- !u!1 &1108264007
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +897,7 @@ GameObject:
   - component: {fileID: 1905690643}
   - component: {fileID: 1905690642}
   - component: {fileID: 1905690641}
+  - component: {fileID: 1905690647}
   m_Layer: 0
   m_Name: Capsule (1)
   m_TagString: Untagged
@@ -909,7 +925,7 @@ MonoBehaviour:
   chaseStartDistance: 5
   chaseStopDistance: 6
   waitTime: 2
-  AttackRange: 0.5
+  AttackRange: 1
   damage: 10
   currentState: 1
 --- !u!195 &1905690642
@@ -1022,6 +1038,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1905690647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905690640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04bd59cf472f3954cb78b35db3adee78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1 &1934728478
 GameObject:
   m_ObjectHideFlags: 0
